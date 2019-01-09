@@ -20,22 +20,23 @@
 		</header>
 
 		<section class="content">
-			<article>
-				<h2>Lorem Ipsum</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet scelerisque arcu, vitae mattis turpis.
-				 Cras dictum nisl non vulputate mollis. Vestibulum in elit vel sapien venenatis aliquam tincidunt nec arcu. 
-				Pellentesque non consequat felis, ac accumsan tellus. Donec sem magna, sagittis nec erat fringilla, commodo aliquet massa.
-				Mauris risus lectus, ornare vel venenatis a, rutrum at augue. Nam eget turpis at metus commodo dignissim sit amet id lectus. 
-				Aliquam consectetur sem eget sem vehicula, nec laoreet felis pellentesque. Vivamus turpis ipsum, rutrum facilisis est semper,
-				egestas congue nibh. Maecenas sodales leo sed quam lacinia luctus. Aliquam scelerisque rutrum nisi, ut tincidunt lorem pharetra in.
-				 Curabitur malesuada dolor ac accumsan ornare. Curabitur pellentesque gravida ipsum, at elementum tortor convallis nec. Aenean
-				  condimentum, nunc ac tincidunt tristique, odio ante euismod ligula, et ullamcorper mauris nisi ut ligula. Vivamus faucibus mattis
-				   turpis ac aliquet. Nam elementum velit ut lectus vestibulum, eu pretium turpis vehicula.
-				</p>
-			</article>
-		</section>
+		<div class="container" id="app">
+            <div class="row">
+                <h1>Formulario</h1>
+                <form @submit.prevent>
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <span v-if="!nombre">Requerido*</span>
+                        <input type="text" id="nombre" class="form-control" v-model="nombre">
+                    </div>    
+                </form>
+            </div>
+            
+            </div>	
+        
+        </section>
 		<footer class="footer">
-			<span class="footer_msg"> Este es el pie de página - codigoprogramacion.com</span>
+			<span class="footer_msg"> Creado por: Andrea Mena, Cristian Macas</span>
 		</footer>
 	</section>
     
