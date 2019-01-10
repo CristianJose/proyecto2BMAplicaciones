@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="APLICACIONES_PRO2" />
+        <module name="PROYECTO_SOCRATIVE" />
       </profile>
     </annotationProcessing>
   </component>

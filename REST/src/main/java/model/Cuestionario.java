@@ -16,6 +16,8 @@ public class Cuestionario implements Serializable {
     @Column(name = "nom_cuestionario")
     private String nom_cuestionario;
 
+
+
     public Cuestionario(Long id_cuestionario, int cod_cuestionario, String nom_cuestionario) {
         this.id_cuestionario = id_cuestionario;
         this.cod_cuestionario = cod_cuestionario;

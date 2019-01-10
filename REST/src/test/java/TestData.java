@@ -8,13 +8,12 @@ public class TestData {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction transaction = session.beginTransaction();
         Cuestionario cuestionario = new Cuestionario();
-        cuestionario.setCod_cuestionario(5678);
+        cuestionario.setCod_cuestionario(1122);
         cuestionario.setNom_cuestionario("Cuestionario 6");
         session.save(cuestionario);
 
         Pregunta pregunta = new Pregunta();
         pregunta.setNom_pregunta("Pregunta01");
-        pregunta.setId_cuestionario(9);
         session.save(pregunta);
 
         Respuesta respuesta = new Respuesta();

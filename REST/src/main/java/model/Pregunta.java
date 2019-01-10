@@ -12,13 +12,14 @@ public class Pregunta implements Serializable {
     private Long id_pregunta;
     @Column(name = "nom_pregunta")
     private String nom_pregunta;
-    @Column(name = "id_cuestionario")
-    private int id_cuestionario;
 
-    public Pregunta(Long id_pregunta, String nom_pregunta, int id_cuestionario) {
+    @ManyToOne
+    @JoinColumn(name="id_cuestionario")
+    private Cuestionario id_cuestionario;
+
+    public Pregunta(Long id_pregunta, String nom_pregunta) {
         this.id_pregunta=id_pregunta;
         this.nom_pregunta = nom_pregunta;
-        this.id_cuestionario = id_cuestionario;
     }
 
     public Pregunta() {
@@ -40,11 +41,4 @@ public class Pregunta implements Serializable {
         this.nom_pregunta = nom_pregunta;
     }
 
-    public int getId_cuestionario() {
-        return id_cuestionario;
-    }
-
-    public void setId_cuestionario(int id_cuestionario) {
-        this.id_cuestionario = id_cuestionario;
-    }
-}
+   }
