@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+
+
+<body>
+    
+<div class="container">
+    	<header id="teacherLoggedIn">
+			<h2>Crear cuestionario</h2>
+			
+		</header>
+        <div id="app">
+            
+            <div class="menu_container">
+				<input class="btnOpMultiple" type="button" name="" value="OP" v-on:click="action1">
+                <label> Opción Múltiple </label>
+                <input class="btnVF" type="button" name="" value="V/F" v-on:click="action2">
+                <label> Verdader/Falso </label>
+                <input class="btnRespCorta" type="button" name="" value="RC" v-on:click="action3">
+                <label> Respuesta Corta</label>
+            </div>
+
+			<div class="op_container" v-if="option===1">
+				
+			</div>
+
+			<div class="op_container" v-if="option===2">
+				
+			</div>
+
+			<div class="opcontainer" v-if="option===3">
+				<
+			</div>
+
+            <pre>
+               {{ $data }}
+             </pre>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="js/aplicacion.js"></script>
+</body>
+
+</html>
