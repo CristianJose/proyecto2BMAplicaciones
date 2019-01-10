@@ -1,0 +1,16 @@
+apply plugin: 'application'
+apply plugin: 'java'
+apply plugin: 'idea'
+
+mainClassName = 'com.firstfewlines.SparkJavaHibernateExample'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.sparkjava:spark-core:2.6.0'
+    compile 'org.slf4j:slf4j-simple:1.7.25'
+    compile group: 'org.hibernate', name: 'hibernate-core', version: '5.2.10.Final'
+    runtime group: 'mysql', name: 'mysql-connector-java', version: '5.1.42'
+}
