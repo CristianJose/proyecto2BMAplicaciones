@@ -2,6 +2,7 @@ new Vue({
     el: "#app",
     data: {
         estado: "",
+        cod_cuestionario: null,
         nom_cuestionario: null,        
         nom_pregunta: null,
         tipo_pregunta: 0,
@@ -20,6 +21,7 @@ new Vue({
         Cuestionario: [],
     },
     methods: {
+        
         connect() {
             socket = new WebSocket("ws://localhost:4567/index");
             socket.onopen = this.openWs;
@@ -44,7 +46,7 @@ new Vue({
         
         fomulario: function () {
             if (this.nom_cuestionario) {
-                this.Cuestionario.push({nomb_cuestionario: this.nom_cuestionario, opcionMultiple: this.pregunta_multiple,
+                this.Cuestionario.push({cod_cuestionario: this.cod_cuestionario, nomb_cuestionario: this.nom_cuestionario, opcionMultiple: this.pregunta_multiple,
                       opcionvf: this.preguntavf, opcionCorta: this.pregunta_corta});
                 if(this.Cuestionario.length != 0){
                     this.connect();
@@ -57,6 +59,7 @@ new Vue({
                 this.errors.push('Se requiere el nombre del cuestionario');
             }
         },
+        
         agregarPregunta: function() {
             switch(this.tipo_pregunta){
                 case 1:
@@ -93,7 +96,8 @@ new Vue({
                     }
                 break;
             }
-        },         
+        },
+        
         insertarvf: function(bool){
             this.botonvf = bool;
         },
@@ -144,7 +148,6 @@ new Vue({
                     }
                 break;
             }
-        },
-        
+        }        
     }
 });

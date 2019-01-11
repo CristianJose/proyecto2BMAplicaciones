@@ -14,7 +14,11 @@
 <div id="app">
             <div>
             	<input type="text" v-model="nom_cuestionario" id="nameCuestionario" placeholder="CuestionarioABC" @keyup.enter=fomulario>
+                
+                <input type="text" v-model="cod_cuestionario" id="codigoCuestionario" placeholder="CodigoCuestionario" @keyup.enter=fomulario>
+                
 				<input id="guardar" type="button" value="Guardar" v-on:click="fomulario">
+                
             </div>
             <div v-if="estado ==='conectado'">
                 <h3>Cuestionario: {{ nom_cuestionario }}</h3>
