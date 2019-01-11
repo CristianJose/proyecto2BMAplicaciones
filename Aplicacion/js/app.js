@@ -7,7 +7,7 @@ new Vue({
         tipo_pregunta: 0,
         pregunta_multiple: [],
         preguntavf: [],
-        pregunta_corta: []
+        pregunta_corta: [],
         opcion_respuesta1: null,
         opcion_respuesta2: null,
         opcion_respuesta3: null,
@@ -40,7 +40,7 @@ new Vue({
         },
         sendMessage(msgData) {
             socket.send(msgData);
-        }
+        },
         
         fomulario: function () {
             if (this.nom_cuestionario) {
