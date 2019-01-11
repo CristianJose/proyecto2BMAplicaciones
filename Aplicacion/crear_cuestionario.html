@@ -12,6 +12,7 @@
 <body>
     
 <div id="app">
+<<<<<<< HEAD
 
 		<div class="col-md-9">
 			<h3 class="mb-5">ENVIA UN MENSAJE</h3>
@@ -26,6 +27,16 @@
 		</div>
 
 
+=======
+            <div>
+            	<input type="text" v-model="nom_cuestionario" id="nameCuestionario" placeholder="CuestionarioABC" @keyup.enter=fomulario>
+                
+                <input type="text" v-model="cod_cuestionario" id="codigoCuestionario" placeholder="CodigoCuestionario" @keyup.enter=fomulario>
+                
+				<input id="guardar" type="button" value="Guardar" v-on:click="fomulario">
+                
+            </div>
+>>>>>>> 5ae9bebf86cb8289060ec1c3fa7e300de4253156
             <div v-if="estado ==='conectado'">
                 <h3>Cuestionario: {{ nom_cuestionario }}</h3>
             </div>
