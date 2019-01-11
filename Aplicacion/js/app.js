@@ -118,26 +118,30 @@ new Vue({
             this.boton_multiple3 = false;
         },
         
-        insertarbotonvf: function(numerobtn, bool) {
-            if(bool == numerobtn){
-                return false;
-            }else{
-                return true;
-            }
-        },
-        
         opcionBoton: function(numero, bool){
             switch (numero){
                 case 1:
-                    this.boton_multiple1 = this.insertarbotonvf(this.boton_multiple1, bool);
+                    if(bool = this.boton_multiple1){
+                        this.boton_multiple1 = false;
+                    }else{
+                        this.boton_multiple1 = true;
+                    }
                 break;
 
                 case 2:
-                    this.boton_multiple2 = this.insertarbotonvf(this.boton_multiple2, bool);
+                     if(bool = this.boton_multiple2){
+                        this.boton_multiple2 = false;
+                    }else{
+                        this.boton_multiple2 = true;
+                    }
                 break;
 
                 case 3:
-                    this.boton_multiple3 = this.insertarbotonvf(this.boton_multiple3, bool);
+                     if(bool = this.boton_multiple3){
+                        this.boton_multiple3 = false;
+                    }else{
+                        this.boton_multiple3 = true;
+                    }
                 break;
             }
         },
