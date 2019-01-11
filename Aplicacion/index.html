@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/estilo.css">
-	<title>Socrative Unico</title>
+    <meta charset="UTF-8">
+    <title>Socrative</title>
+    <link rel="stylesheet" type="text/css" href="css/estilos.css">
+    <link href="https://fonts.googleapis.com/css?family=Courgette|Shrikhand" rel="stylesheet"> 
 </head>
+
 <body>
-	<section id="main_container">
-		<header class="header">
+    <section>
+        
+    <header class="header">
 			<h1>Bienvenido a mi Socrative</h1>
 			<nav class="top_menu">
 				<ul>
@@ -18,38 +21,12 @@
 				</ul>
 			</nav>
 		</header>
-		
-		<div id ="app">
-			<div class="menu_container" v-if="action===1">
-					
-			
-				
-			</div>
-			
-		</div>
-
-		<section class="content">
-		<div class="container" id="app">
-            <div class="row">
-                <h1>Formulario</h1>
-                <form @submit.prevent>
-                    <div class="form-group">
-                        <label for="nombre">Nombre:</label>
-                        <span v-if="!nombre">Requerido*</span>
-                        <input type="text" id="nombre" class="form-control" v-model="nombre">
-                    </div>    
-                </form>
-            </div>
-            
-            </div>	
         
-        </section>
-		<footer class="footer">
-			<span class="footer_msg"> Creado por: Andrea Mena, Cristian Macas</span>
-		</footer>
-	</section>
+        
     
-	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="js/app.js"></script>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="js/mainJs.js"></script>
 </body>
+
 </html>
