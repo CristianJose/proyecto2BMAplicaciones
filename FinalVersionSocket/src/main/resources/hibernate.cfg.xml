@@ -16,6 +16,10 @@
         <property name="hibernate.current_session_context_class">thread</property>
 
         <mapping class="hibernate.Cuestionario" />
+        <mapping class="hibernate.Pre_Multiple" />
+        <mapping class="hibernate.Pre_Vf" />
+        <mapping class="hibernate.Pre_C" />
+        <mapping class="hibernate.Resp_M" />
     </session-factory>
 
 </hibernate-configuration>

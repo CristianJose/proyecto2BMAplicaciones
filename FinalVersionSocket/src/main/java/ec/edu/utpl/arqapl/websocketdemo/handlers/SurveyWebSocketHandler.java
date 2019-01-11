@@ -2,7 +2,7 @@ package ec.edu.utpl.arqapl.websocketdemo.handlers;
 
 import com.google.gson.*;
 import ec.edu.utpl.arqapl.websocketdemo.MainWSocketSurvey;
-import hibernate.Cuestionario;
+import hibernate.*;
 import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.api.annotations.OnWebSocketClose;
 import org.eclipse.jetty.websocket.api.annotations.OnWebSocketConnect;
@@ -62,8 +62,7 @@ public class SurveyWebSocketHandler {
             System.out.println(nombre1_cuestionario);
             session.save(c);
 
-            transaction.commit();
-            session.close();
+            Long idfor = (Long) session.save(c);
 
             if(opcionMultiple.size() != 0){
                 for(int i = 0; i < opcionMultiple.size(); i++){
@@ -72,11 +71,26 @@ public class SurveyWebSocketHandler {
                     String pregunta = gsonObj2.get("pregunta").getAsString();
                     System.out.println("pregunta: " + pregunta); //asdadsad
                     JsonArray opciones = gsonObj2.get("opciones").getAsJsonArray();
+
+                    Pre_Multiple p = new Pre_Multiple();
+                    p.setNom_pregunta(pregunta);
+                    p.setId_cuestionario(idfor.intValue());
+                    session.save(p);
+                    Long idfor2 = (Long) session.save(p);
+
+
                     for(int j = 0; j < opciones.size(); j++){
                         JsonObject gsonObj3 = opciones.get(j).getAsJsonObject();
                         String opcion = gsonObj3.get("opcion").getAsString();
                         Boolean respuesta = gsonObj3.get("respuesta").getAsBoolean();
                         System.out.println("Opcion: " + opcion + " respuesta: " + respuesta); // adsadasd
+
+
+                        Resp_M m = new Resp_M();
+                        m.setId_pregunta(idfor2.intValue());
+                        m.setNom_respuestaM(opcion);
+                        m.setValor_respuestaM(respuesta);
+                        session.save(m);
 
                     }
                 }
@@ -90,6 +104,14 @@ public class SurveyWebSocketHandler {
                     System.out.println("pregunta: " + pregunta); //asdadsad
                     Boolean respuesta = gsonObj2.get("respuesta").getAsBoolean();
                     System.out.println("respuesta: " + respuesta); // adsadasd
+
+                    Pre_Vf v = new Pre_Vf();
+                    v.setNom_vf(pregunta);
+                    v.setRes_vf(respuesta);
+                    v.setId_cuestionario(idfor.intValue());
+                    session.save(v);
+
+
                 }
             }
 
@@ -102,9 +124,15 @@ public class SurveyWebSocketHandler {
                     System.out.println("Pregunta: " + pregunta);
                     String respuesta = gsonObj2.get("respuesta").getAsString();
                     System.out.println("respuesta: " + respuesta); // adsadasd
-                    
+
+                    Pre_C pc = new Pre_C();
+                    pc.setId_cuestionario(idfor.intValue());
+                    pc.setNom_preguntac(pregunta);
+                    session.save(pc);
                 }
             }
+            transaction.commit();
+            session.close();
         }
     }
 }
