@@ -62,10 +62,10 @@ new Vue({
                 case 1:
                     if (this.nom_pregunta && this.opcion_respuesta1 && this.opcion_respuesta2 && this.opcion_respuesta3) {
                         var lista = [];
-                        lista.push({ opciones: this.opcion_respuesta1, respuesta: this.boton_multiple1 });
-                        lista.push({ opciones: this.opcion_respuesta2, respuesta: this.boton_multiple2 });
-                        lista.push({ opciones: this.opcion_respuesta3, respuesta: this.boton_multiple3 });
-                        this.pregunta_multiple.push({ prueba: this.nom_pregunta, opciones: lista });
+                        lista.push({ opcion: this.opcion_respuesta1, respuesta: this.boton_multiple1 });
+                        lista.push({ opcion: this.opcion_respuesta2, respuesta: this.boton_multiple2 });
+                        lista.push({ opcion: this.opcion_respuesta3, respuesta: this.boton_multiple3 });
+                        this.pregunta_multiple.push({ pregunta: this.nom_pregunta, opciones: lista });
                         this.borrar();
                         return true;
                     }else{
@@ -85,7 +85,7 @@ new Vue({
 
                 case 3:
                     if (this.nom_pregunta) {
-                        this.pregunta_corta.push({ pregunta: this.nom_pregunta, opcion: this.respuesta_corta });
+                        this.pregunta_corta.push({ pregunta: this.nom_pregunta, respuesta: this.respuesta_corta });
                         this.borrar();
                         return true;
                     }else{
