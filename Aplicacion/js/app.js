@@ -109,6 +109,7 @@ new Vue({
             this.opcion_respuesta1 = null;
             this.opcion_respuesta2 = null;
             this.opcion_respuesta3 = null;
+            this.respuesta_corta = null;
             // el botn lo pongo en false en vez de true
             this.botonvf = true;
             this.boton_multiple1 = false;
