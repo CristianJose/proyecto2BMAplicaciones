@@ -83,7 +83,7 @@ public class SurveyWebSocketHandler {
 
                     String respuesta = gsonObj2.get("respuesta").getAsString();
                     System.out.println("respuesta: " + respuesta); // adsadasd
-                    
+
                 }
             }
         }

@@ -12,10 +12,20 @@
 <body>
     
 <div id="app">
-            <div>
-            	<input type="text" v-model="nom_cuestionario" id="nameCuestionario" placeholder="CuestionarioABC" @keyup.enter=fomulario>
-				<input id="guardar" type="button" value="Guardar" v-on:click="fomulario">
-            </div>
+
+		<div class="col-md-9">
+			<h3 class="mb-5">ENVIA UN MENSAJE</h3>
+			<form>
+				<div class="form-row">
+				  <div class="form-group col-md-6">
+				      	<input type="text" class="form-control" v-model="nom_cuestionario" id="nameCuestionario" placeholder="CuestionarioABC" @keyup.enter=fomulario>
+						<button type="submit" class="btn btn-primary" @click="fomulario" >GUARDAR</button>
+				    </div>
+				</div>
+			</form>
+		</div>
+
+
             <div v-if="estado ==='conectado'">
                 <h3>Cuestionario: {{ nom_cuestionario }}</h3>
             </div>
