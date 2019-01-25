@@ -21,4 +21,7 @@ public class MainWSocketSurvey {
         webSocket("/index", SurveyWebSocketHandler.class);
         init();
     }
+
+
+
 }
