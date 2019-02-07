@@ -11,18 +11,17 @@ public class Pre_Vf implements Serializable {
     @Column(name = "id_vf")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_vf;
-    @Column(name = "nom_vf")
-    private String nom_vf;
-    @Column(name = "res_vf")
-    private boolean res_vf;
+    @Column(name = "pregunta")
+    private String pregunta;
+    @Column(name = "rta")
+    private boolean rta;
 
     public Pre_Vf() {
-
     }
 
-    public Pre_Vf(String nom_vf, boolean res_vf) {
-        this.nom_vf = nom_vf;
-        this.res_vf = res_vf;
+    public Pre_Vf(String pregunta, boolean rta) {
+        this.pregunta = pregunta;
+        this.rta = rta;
     }
 
     public Long getId_vf() {
@@ -33,19 +32,19 @@ public class Pre_Vf implements Serializable {
         this.id_vf = id_vf;
     }
 
-    public String getNom_vf() {
-        return nom_vf;
+    public String getPregunta() {
+        return pregunta;
     }
 
-    public void setNom_vf(String nom_vf) {
-        this.nom_vf = nom_vf;
+    public void setPregunta(String pregunta) {
+        this.pregunta = pregunta;
     }
 
-    public boolean isRes_vf() {
-        return res_vf;
+    public boolean isRta() {
+        return rta;
     }
 
-    public void setRes_vf(boolean res_vf) {
-        this.res_vf = res_vf;
+    public void setRta(boolean rta) {
+        this.rta = rta;
     }
 }

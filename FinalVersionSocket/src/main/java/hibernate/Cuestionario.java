@@ -12,26 +12,26 @@ public class Cuestionario implements Serializable {
     @Column(name = "id_cuestionario")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_cuestionario;
-    @Column(name = "nom_cuestionario")
-    private String nom_cuestionario;
+    @Column(name = "cuestionario")
+    private String cuestionario;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "Cuestionario_PreOpcMult")
-    private List<Pre_Multiple> opcionMultiple;
+    private List<Pre_Multiple> preguntasMultiples;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "Cuestionario_PreOpcVf")
-    private List<Pre_Vf> opcionVf;
+    private List<Pre_Vf> preguntasVF;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "Cuestionario_PreC")
-    private List<Pre_C> opcionC;
+    private List<Pre_C> preguntasCortas;
 
     public Cuestionario() {
     }
 
-    public Cuestionario(String nom_cuestionario, List<Pre_Multiple> opcionMultiple, List<Pre_Vf> opcionVf, List<Pre_C> opcionC) {
-        this.nom_cuestionario = nom_cuestionario;
-        this.opcionMultiple = opcionMultiple;
-        this.opcionVf = opcionVf;
-        this.opcionC = opcionC;
+    public Cuestionario(String cuestionario, List<Pre_Multiple> preguntasMultiples, List<Pre_Vf> preguntasVF, List<Pre_C> preguntasCortas) {
+        this.cuestionario = cuestionario;
+        this.preguntasMultiples = preguntasMultiples;
+        this.preguntasVF = preguntasVF;
+        this.preguntasCortas = preguntasCortas;
     }
 
     public Long getId_cuestionario() {
@@ -42,35 +42,35 @@ public class Cuestionario implements Serializable {
         this.id_cuestionario = id_cuestionario;
     }
 
-    public String getNom_cuestionario() {
-        return nom_cuestionario;
+    public String getCuestionario() {
+        return cuestionario;
     }
 
-    public void setNom_cuestionario(String nom_cuestionario) {
-        this.nom_cuestionario = nom_cuestionario;
+    public void setCuestionario(String cuestionario) {
+        this.cuestionario = cuestionario;
     }
 
-    public List<Pre_Multiple> getOpcionMultiple() {
-        return opcionMultiple;
+    public List<Pre_Multiple> getPreguntasMultiples() {
+        return preguntasMultiples;
     }
 
-    public void setOpcionMultiple(List<Pre_Multiple> opcionMultiple) {
-        this.opcionMultiple = opcionMultiple;
+    public void setPreguntasMultiples(List<Pre_Multiple> preguntasMultiples) {
+        this.preguntasMultiples = preguntasMultiples;
     }
 
-    public List<Pre_Vf> getOpcionVf() {
-        return opcionVf;
+    public List<Pre_Vf> getPreguntasVF() {
+        return preguntasVF;
     }
 
-    public void setOpcionVf(List<Pre_Vf> opcionVf) {
-        this.opcionVf = opcionVf;
+    public void setPreguntasVF(List<Pre_Vf> preguntasVF) {
+        this.preguntasVF = preguntasVF;
     }
 
-    public List<Pre_C> getOpcionC() {
-        return opcionC;
+    public List<Pre_C> getPreguntasCortas() {
+        return preguntasCortas;
     }
 
-    public void setOpcionC(List<Pre_C> opcionC) {
-        this.opcionC = opcionC;
+    public void setPreguntasCortas(List<Pre_C> preguntasCortas) {
+        this.preguntasCortas = preguntasCortas;
     }
 }

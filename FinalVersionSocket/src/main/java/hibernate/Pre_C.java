@@ -11,19 +11,17 @@ public class Pre_C implements Serializable {
     @Column(name = "id_preguntac")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_preguntac;
-    @Column(name = "nom_preguntac")
-    private String nom_preguntac;
-    @Column(name = "respuesta")
-    private String respuesta;
-
+    @Column(name = "pregunta")
+    private String pregunta;
+    @Column(name = "rta")
+    private String rta;
 
     public Pre_C() {
-
     }
 
-    public Pre_C(String nom_preguntac, String respuesta) {
-        this.nom_preguntac = nom_preguntac;
-        this.respuesta = respuesta;
+    public Pre_C(String pregunta, String rta) {
+        this.pregunta = pregunta;
+        this.rta = rta;
     }
 
     public Long getId_preguntac() {
@@ -34,19 +32,19 @@ public class Pre_C implements Serializable {
         this.id_preguntac = id_preguntac;
     }
 
-    public String getNom_preguntac() {
-        return nom_preguntac;
+    public String getPregunta() {
+        return pregunta;
     }
 
-    public void setNom_preguntac(String nom_preguntac) {
-        this.nom_preguntac = nom_preguntac;
+    public void setPregunta(String pregunta) {
+        this.pregunta = pregunta;
     }
 
-    public String getRespuesta() {
-        return respuesta;
+    public String getRta() {
+        return rta;
     }
 
-    public void setRespuesta(String respuesta) {
-        this.respuesta = respuesta;
+    public void setRta(String rta) {
+        this.rta = rta;
     }
 }

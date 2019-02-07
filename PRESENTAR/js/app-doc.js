@@ -75,7 +75,7 @@ var vm = new Vue({
                 arreglo.push({alternativa: this.opcion_r1, rta: this.boton_multiple1});
                 arreglo.push({alternativa: this.opcion_r2, rta: this.boton_multiple2});
                 arreglo.push({alternativa: this.opcion_r3, rta: this.boton_multiple3});
-                this.pregunta_multiple.push({preguntas: this.pregunta, alternativas: arreglo});
+                this.pregunta_multiple.push({pregunta: this.pregunta, alternativas: arreglo});
                 this.borrar(1);
             }else{
                 this.errors.push('No hay datos suficientes');

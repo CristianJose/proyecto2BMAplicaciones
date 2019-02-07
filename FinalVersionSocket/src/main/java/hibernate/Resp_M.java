@@ -12,18 +12,16 @@ public class Resp_M implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_respuestaM;
     @Column(name = "id_pregunta")
-    private String nom_respuestaM;
-    @Column(name = "valor_respuestaM")
-    private boolean valor_respuestaM;
-
+    private String alternativa;
+    @Column(name = "alternativa")
+    private boolean rta;
 
     public Resp_M() {
-
     }
 
-    public Resp_M(String nom_respuestaM, boolean valor_respuestaM) {
-        this.nom_respuestaM = nom_respuestaM;
-        this.valor_respuestaM = valor_respuestaM;
+    public Resp_M(String alternativa, boolean rta) {
+        this.alternativa = alternativa;
+        this.rta = rta;
     }
 
     public Long getId_respuestaM() {
@@ -34,19 +32,19 @@ public class Resp_M implements Serializable {
         this.id_respuestaM = id_respuestaM;
     }
 
-    public String getNom_respuestaM() {
-        return nom_respuestaM;
+    public String getAlternativa() {
+        return alternativa;
     }
 
-    public void setNom_respuestaM(String nom_respuestaM) {
-        this.nom_respuestaM = nom_respuestaM;
+    public void setAlternativa(String alternativa) {
+        this.alternativa = alternativa;
     }
 
-    public boolean isValor_respuestaM() {
-        return valor_respuestaM;
+    public boolean isRta() {
+        return rta;
     }
 
-    public void setValor_respuestaM(boolean valor_respuestaM) {
-        this.valor_respuestaM = valor_respuestaM;
+    public void setRta(boolean rta) {
+        this.rta = rta;
     }
 }
