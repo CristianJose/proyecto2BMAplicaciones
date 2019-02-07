@@ -22,7 +22,7 @@ public class MainWSocketSurvey {
 
     public static void main(String[] args) {
        session = HibernateUtil.getSessionFactory().getCurrentSession();
-        webSocket("/index", SurveyWebSocketHandler.class);
+        webSocket("/profesor", SurveyWebSocketHandler.class);
         init();
     }
 

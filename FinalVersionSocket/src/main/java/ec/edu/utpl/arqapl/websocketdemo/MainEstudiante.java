@@ -24,7 +24,7 @@ public class MainEstudiante {
 
     public static void main(String[] args) {
         session = HibernateUtil.getSessionFactory().getCurrentSession();
-        webSocket("/Estudiante", Estudiante.class);
+        webSocket("/estudiante", Estudiante.class);
         init();
     }
 
