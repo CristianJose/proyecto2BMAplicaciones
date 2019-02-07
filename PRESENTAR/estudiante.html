@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My socrative</title>
+    <link rel="stylesheet" type="text/css" href="css/estilosStudent.css">
+</head>
+<body>
+    <header>
+        <h1>My Socrative</h1>
+    </header>
+    <div id="app">
+        <div id="formLogin" v-if="!estado">
+            <div id="containerTxtKeyConnected">
+                <label>CODIGO CUESTIONARIO</label>
+                <input id="txtKeyConnected" v-model="acceso" type="text" name="txtKey" placeholder="Codigo de cuestionario">
+            </div>
+            <button id="btnEnterKey" v-on:click="connect">Empezar</button>
+        </div>
+        
+        <div id="containerQuiz" v-if="estado === 'conectado'">
+
+            <h2>{{ cuestionario.nombreCuest }} </h2>
+        <br>
+            <div v-for="interrogante in cuestionario.pmultiple" id="">
+                <h5>{{ interrogante.pregunta }} </h5>
+                <fieldset>
+                    <h6>Elige una respuesta</h6>
+                    <q-option1 v-for="alternativa in interrogante.alternativas" :key="alternativa.idalternativa" v-bind:opcion="alternativa" v-bind:groupid="interrogante.idOpmultiple"></q-option1>
+                </fieldset>
+            </div>
+                    
+            <div v-for="interrogante in cuestionario.optionTrueFalse" id="">
+                <h5>{{ interrogante.pregunta }} </h5>
+                <fieldset>
+                    <h6>Elige una respuesta</h6>
+                    <q-option2 v-bind:groupid="100 + interrogante.idOpvf"></q-option2>
+                </fieldset>
+            </div>
+                    
+            <div v-for="interrogante in cuestionario.optionShortAnswer" id="">
+                <h5>{{ interrogante.pregunta }} </h5>
+                <fieldset>
+                    <h6>Ingrese su respuesta</h6>
+                    <q-option3 v-bind:groupid="interrogante.idOpcorta"></q-option3>
+                </fieldset>
+            </div>
+            <br>
+            <button type="button" name="button" v-on:click="saveAnswer">Enviar Respuesta</button>
+        </form>
+        <!--
+        <pre>
+            {{ $data }}
+        </pre>
+        -->
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="js/app-est.js"></script>
+</body>
+</html>

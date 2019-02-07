@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+
+<body>
+    
+<div id="app">
+            <div>
+            	<input type="text" v-model="nom_cuestionario" id="nameCuestionario" placeholder="CuestionarioABC" @keyup.enter=fomulario>
+				<input id="guardar" type="button" value="Guardar" v-on:click="fomulario">
+            </div>
+            <div v-if="estado ==='conectado'">
+                <h3>Cuestionario: {{ nom_cuestionario }}</h3>
+            </div>
+
+            <div class="op_container">
+				
+				<input class="btn_multiple" type="button" name="" value="Multi-Opcion" v-on:click="mostrarPregunta(1)">
+
+				<input class="btn_vf" type="button" name="" value="Verdadero/Falso" v-on:click="mostrarPregunta(2)">
+
+				<input class="btn_rcorta" type="button" name="" value="Respuesta-Corta" v-on:click="mostrarPregunta(3)">
+			</div>
+			
+			<div class="preg_container" v-if="tipo_pregunta===1">
+				<div class="opciones_respuestas">
+					<input v-model="nom_pregunta" class="txtnom" type="text" name="" placeholder="Escriba su pregunta" v-on:keyup.enter="agregarPregunta()">
+					<label> Opcion 1 </label>
+					<input v-model="opcion_respuesta1" class="opciones" type="text" name="" placeholder="opcion 1">
+					<input class="validar_op" type="button" value="OK" v-on:click="opcionBoton(1, true)">
+					<br>
+					<label> Opcion 2 </label>
+					<input v-model="opcion_respuesta2" class="opciones" type="text" name="" placeholder="opcion 2">
+					<input class="validar_op" type="button" value="OK" v-on:click="opcionBoton(2, true)">
+					<br>
+					<label> Opcion 3 </label>
+					<input v-model="opcion_respuesta3" class="opciones" type="text" name="" placeholder="opcion 3">
+					<input class="validar_op" type="button" value="OK" v-on:click="opcionBoton(3, true)">
+					<br>
+					
+					<input v-on:click="agregarPregunta()" id="btnAlmacenar" type="button" name="" value="AlmacenarPregunta">
+				</div>
+			</div>
+
+			<div class="preg_container" v-if="tipo_pregunta===2">
+				<div class="opciones_respuestas">
+					<input v-model="nom_pregunta" class="txtnom" type="text" placeholder="Digitar pregunta" v-on:keyup.enter="agregarPregunta()">
+					<br>
+					<label>Opción Correcta</label>
+					<div class="vf_container">
+						<input id="btnV" type="button" name="verdadero" value="Verdadero" v-on:click="insertarvf(true)">
+						<input id="btnF" type="button" name="falso" value="Falso" v-on:click="insertarvf(false)">
+					</div>
+					<input id="btnAlmacenar" type="button" name="" value="AlmacenarPregunta" v-on:click="agregarPregunta()">
+				</div>
+			</div>
+
+			<div class="preg_container" v-if="tipo_pregunta===3">
+				<div class="opciones_respuestas">
+					<input v-model="nom_pregunta" class="txtnom" type="text" name="" placeholder="Escriba su pregunta" v-on:keyup.enter="agregarPregunta()">
+                    
+                    <label> Respuesta </label>
+					<input v-model="respuesta_corta" class="opciones" type="text" name="" placeholder="Respuesta corta">
+                    
+					<input id="btnAlmacenar" type="button" name="" value="AlmacenarPregunta" v-on:click="agregarPregunta()">
+				</div>
+			</div>
+
+            <pre>
+               {{ $data }}
+            </pre>
+
+        </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="../js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,179 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+h2{
+	text-align: center;
+	height: 60px;
+	display: flex;
+	font-size: 2.2em;
+	justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
+    font-family: 'Shrikhand', cursive;
+    font-family: 'Courgette', cursive;
+}
+
+nav{
+	padding: 5px 20px;
+	background-color: cyan;
+}
+
+a{
+	text-decoration: none;
+	color: #000000;
+	text-align: center;
+	padding: 10px 15px;
+	cursor: pointer;
+	background: cyan;
+	display: inline-flex;
+}
+
+a:hover{
+	background: yellow;
+}
+
+label{
+	color: #000000;
+	margin-left: 10%;
+}
+
+#txtNameQuiz{
+	margin: 10px 0 10px 20px;
+	height: 30px;
+	width: 50%;
+	padding: 2px 10px;
+	font-size: 1em;
+	border: 1px solid black;
+}
+
+#btnSaveQuiz{
+	border-radius: 15px; 
+	background: #ffffff;
+	height: 35px;
+	width: 150px;
+	border: 2px solid black;
+	font-size: 0.9em;
+	font-weight: bold;
+	margin-left: 10px;
+	cursor: pointer;
+}
+
+.containerQuestion{
+	background: cyan;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.containerQuestion input{
+	height: 35px;
+	font-size: 0.9em;
+	text-align: center;
+	margin: 2.5px 0;
+	border: 1px solid #000000;
+}
+
+.txtNameQuestion{
+	width: 99.5%;
+	margin: 5px auto 10px;
+}
+
+.optionQuestion{
+	width: 70%;
+}
+
+.checkboxOption{
+	width: 40px;
+}
+
+#btnSaveQuestion{
+	border-radius: 15px;
+	background: #ffffff;
+	height: 45px;
+	width: 300px;
+	border: 2px solid black;
+	font-size: 0.9em;
+	font-weight: bold;
+	cursor: pointer;
+	margin: 5px auto;
+	display: flex;
+}
+
+.answerAndOption{
+	background: yellow;
+	width: 90%;
+	margin: 0 auto;
+}
+
+.containerOptionQuestions{
+	padding-bottom: 20px;
+}
+
+.questions{
+	margin: 10px auto 5px;
+	text-align: left;
+	display: block;
+	font-weight: bold;
+	font-size: 1.1em;
+	padding: 5px 0 5px 20px;
+}
+
+.btnAddOptionM{
+	background: #ffffff;
+	width: 160px;
+	height: 40px;
+	font-weight: bold;
+	font-size: 0.9em;
+	border-radius: 20px;
+	border: 2px solid orange;
+	color: orange;
+	margin: 5px 5px 5px 10px;
+	cursor: pointer;
+}
+
+.btnAddTrueF{
+	background: #ffffff;
+	width: 160px;
+	height: 40px;
+	font-weight: bold;
+	font-size: 0.9em;
+	border-radius: 20px;
+	border: 2px solid purple;
+	color: purple;
+	margin: 5px 5px 5px 10px;
+	cursor: pointer;
+}
+
+.btnAddShortA{
+	background: #ffffff;
+	width: 160px;
+	height: 40px;
+	font-weight: bold;
+	font-size: 0.9em;
+	border-radius: 20px;
+	border: 2px solid blue;
+	color: blue;
+	margin: 5px 5px 5px 10px;
+	cursor: pointer;
+}
+
+.containerTrueFalse{
+	width: 80%;
+	margin: 5px auto;
+	font-size: 1em;
+}
+
+#btnTrue{
+	width: 120px;
+	font-weight: bold;
+	border: 2px solid #000000;
+}
+
+#btnFalse{
+	width: 120px;
+	font-weight: bold;
+	margin-left: 5px;
+	border: 2px solid #000000;
+}
