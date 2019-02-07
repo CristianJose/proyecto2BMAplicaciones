@@ -2,6 +2,7 @@ package hibernate;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "pregunta")
@@ -13,15 +14,18 @@ public class Pre_Multiple implements Serializable {
     private Long id_pregunta;
     @Column(name = "nom_pregunta")
     private String nom_pregunta;
-    @Column(name = "id_cuestionario")
-    private int id_cuestionario;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "Pre_M_idOpPreMult")
+    private List<Resp_M> respuestaM;
 
-    public Pre_Multiple(String nom_pregunta, int id_cuestionario) {
-        this.nom_pregunta = nom_pregunta;
-        this.id_cuestionario = id_cuestionario;
-    }
 
     public Pre_Multiple() {
+
+    }
+
+    public Pre_Multiple(String nom_pregunta, List<Resp_M> respuestaM) {
+        this.nom_pregunta = nom_pregunta;
+        this.respuestaM = respuestaM;
     }
 
     public Long getId_pregunta() {
@@ -40,11 +44,11 @@ public class Pre_Multiple implements Serializable {
         this.nom_pregunta = nom_pregunta;
     }
 
-    public int getId_cuestionario() {
-        return id_cuestionario;
+    public List<Resp_M> getRespuestaM() {
+        return respuestaM;
     }
 
-    public void setId_cuestionario(int id_cuestionario) {
-        this.id_cuestionario = id_cuestionario;
+    public void setRespuestaM(List<Resp_M> respuestaM) {
+        this.respuestaM = respuestaM;
     }
 }

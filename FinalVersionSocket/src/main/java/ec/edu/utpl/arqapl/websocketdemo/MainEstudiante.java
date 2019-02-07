@@ -1,8 +1,9 @@
 package ec.edu.utpl.arqapl.websocketdemo;
 
 import com.google.gson.Gson;
-import ec.edu.utpl.arqapl.websocketdemo.handlers.SurveyWebSocketHandler;
+import ec.edu.utpl.arqapl.websocketdemo.handlers.Estudiante;
 import hibernate.Cuestionario;
+import hibernate.Informe;
 import org.eclipse.jetty.websocket.api.Session;
 import org.hibernate.Transaction;
 import util.HibernateUtil;
@@ -12,23 +13,22 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static spark.Spark.*;
+import static spark.Spark.init;
+import static spark.Spark.webSocket;
 
-public class MainWSocketSurvey {
+public class MainEstudiante {
     public static org.hibernate.Session session;
     public static Transaction transaction;
     public static Map<Session, String> userUsernameMap = new ConcurrentHashMap<>();
     public static AtomicInteger userNumber = new AtomicInteger();
 
     public static void main(String[] args) {
-       session = HibernateUtil.getSessionFactory().getCurrentSession();
-        webSocket("/index", SurveyWebSocketHandler.class);
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+        webSocket("/Estudiante", Estudiante.class);
         init();
     }
 
-
     public static void broadcastMessage(String sender, String message) {
-        saveQuiz(message);
         userUsernameMap.keySet().stream().filter(Session::isOpen).forEach(session -> {
             try {
                 session.getRemote().sendString(leer(Integer.valueOf(message)));
@@ -37,7 +37,7 @@ public class MainWSocketSurvey {
             }
         });
     }
-    //aquie debo cambiar lo de la base de datos cristian
+//aqui debo cambiar segun la base de datos amigo yo
     public static  String leer(int id){
         session = HibernateUtil.getSessionFactory().getCurrentSession();
         transaction = session.beginTransaction();
@@ -63,6 +63,14 @@ public class MainWSocketSurvey {
         transaction.commit();
         session.close();
     }
-
-
+//guardar resultados modificar pilas
+    public static void saveResults(String message){
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+        var gson = new Gson();
+        var results = gson.fromJson(message, Informe.class);
+        transaction = session.beginTransaction();
+        session.save(results);
+        transaction.commit();
+        session.close();
+    }
 }

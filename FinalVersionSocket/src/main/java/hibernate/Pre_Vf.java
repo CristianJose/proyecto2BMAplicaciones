@@ -15,16 +15,14 @@ public class Pre_Vf implements Serializable {
     private String nom_vf;
     @Column(name = "res_vf")
     private boolean res_vf;
-    @Column(name = "id_cuestionario")
-    private int id_cuestionario;
-
-    public Pre_Vf(String nom_vf, boolean res_vf, int id_cuestionario) {
-        this.nom_vf = nom_vf;
-        this.res_vf = res_vf;
-        this.id_cuestionario = id_cuestionario;
-    }
 
     public Pre_Vf() {
+
+    }
+
+    public Pre_Vf(String nom_vf, boolean res_vf) {
+        this.nom_vf = nom_vf;
+        this.res_vf = res_vf;
     }
 
     public Long getId_vf() {
@@ -49,13 +47,5 @@ public class Pre_Vf implements Serializable {
 
     public void setRes_vf(boolean res_vf) {
         this.res_vf = res_vf;
-    }
-
-    public int getId_cuestionario() {
-        return id_cuestionario;
-    }
-
-    public void setId_cuestionario(int id_cuestionario) {
-        this.id_cuestionario = id_cuestionario;
     }
 }
