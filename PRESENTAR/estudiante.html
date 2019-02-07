@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>My socrative</title>
-    <link rel="stylesheet" type="text/css" href="css/estilosStudent.css">
+    
 </head>
 <body>
     <header>
         <h1>My Socrative</h1>
     </header>
     <div id="app">
-        <div id="formLogin" v-if="!estado">
+        <div id="formLogin" v-if="!conectar">
             <div id="containerTxtKeyConnected">
                 <label>CODIGO CUESTIONARIO</label>
                 <input id="txtKeyConnected" v-model="acceso" type="text" name="txtKey" placeholder="Codigo de cuestionario">
@@ -18,7 +18,7 @@
             <button id="btnEnterKey" v-on:click="connect">Empezar</button>
         </div>
         
-        <div id="containerQuiz" v-if="estado === 'conectado'">
+        <div id="containerQuiz" v-if="conectar === 'conectado'">
 
             <h2>{{ cuestionario.nombreCuest }} </h2>
         <br>

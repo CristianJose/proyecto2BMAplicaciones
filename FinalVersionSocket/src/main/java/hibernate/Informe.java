@@ -13,18 +13,20 @@ public class Informe implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_informe;
     private int id_cuestionario;
-    private String nombreC;
-    private String nombreE;
+    private String nombreCuest;
+    private String student;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "informe_id_respuestas")
-    private List<Respuestas> respuestas;
+    private List<Respuestas> rtas;
 
+    public Informe() {
+    }
 
-    public Informe(int id_cuestionario, String nombreC, String nombreE, List<Respuestas> respuestas) {
+    public Informe(int id_cuestionario, String nombreCuest, String student, List<Respuestas> rtas) {
         this.id_cuestionario = id_cuestionario;
-        this.nombreC = nombreC;
-        this.nombreE = nombreE;
-        this.respuestas = respuestas;
+        this.nombreCuest = nombreCuest;
+        this.student = student;
+        this.rtas = rtas;
     }
 
     public Long getId_informe() {
@@ -43,27 +45,27 @@ public class Informe implements Serializable {
         this.id_cuestionario = id_cuestionario;
     }
 
-    public String getNombreC() {
-        return nombreC;
+    public String getNombreCuest() {
+        return nombreCuest;
     }
 
-    public void setNombreC(String nombreC) {
-        this.nombreC = nombreC;
+    public void setNombreCuest(String nombreCuest) {
+        this.nombreCuest = nombreCuest;
     }
 
-    public String getNombreE() {
-        return nombreE;
+    public String getStudent() {
+        return student;
     }
 
-    public void setNombreE(String nombreE) {
-        this.nombreE = nombreE;
+    public void setStudent(String student) {
+        this.student = student;
     }
 
-    public List<Respuestas> getRespuestas() {
-        return respuestas;
+    public List<Respuestas> getRtas() {
+        return rtas;
     }
 
-    public void setRespuestas(List<Respuestas> respuestas) {
-        this.respuestas = respuestas;
+    public void setRtas(List<Respuestas> rtas) {
+        this.rtas = rtas;
     }
 }

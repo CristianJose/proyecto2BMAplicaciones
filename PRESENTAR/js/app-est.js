@@ -33,7 +33,7 @@ Vue.component('pregunta3', {
     `
 });
 
-new Vue({
+var vm = new Vue({
     el: "#app",
     data: {
         // key: '',
@@ -51,7 +51,7 @@ new Vue({
     },
     methods: {
         connect() {
-            socket = new WebSocket("ws://localhost:4567/Student");
+            socket = new WebSocket("ws://localhost:4567/estudiante");
             socket.onopen = this.openWs;
             socket.onerror = this.errorWs;
             socket.onmessage = this.messageWs;

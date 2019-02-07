@@ -10,15 +10,15 @@ public class Respuestas implements Serializable {
     @Column(name = "id_respuestas")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_respuestas;
-    private String pregunta;
-    private String respuesta;
+    private String preg;
+    private String rta;
 
     public Respuestas() {
     }
 
-    public Respuestas(String pregunta, String respuesta) {
-        this.pregunta = pregunta;
-        this.respuesta = respuesta;
+    public Respuestas(String preg, String rta) {
+        this.preg = preg;
+        this.rta = rta;
     }
 
     public Long getId_respuestas() {
@@ -29,19 +29,19 @@ public class Respuestas implements Serializable {
         this.id_respuestas = id_respuestas;
     }
 
-    public String getPregunta() {
-        return pregunta;
+    public String getPreg() {
+        return preg;
     }
 
-    public void setPregunta(String pregunta) {
-        this.pregunta = pregunta;
+    public void setPreg(String preg) {
+        this.preg = preg;
     }
 
-    public String getRespuesta() {
-        return respuesta;
+    public String getRta() {
+        return rta;
     }
 
-    public void setRespuesta(String respuesta) {
-        this.respuesta = respuesta;
+    public void setRta(String rta) {
+        this.rta = rta;
     }
 }
