@@ -54,27 +54,7 @@ var vm = new Vue({
         error: [],
     },
     methods: {
-        connect() {
-            socket = new WebSocket("ws://localhost:4567/index");
-            socket.onopen = this.openWs;
-            socket.onerror = this.errorWs;
-            socket.onmessage = this.messageWs;
-        },
-        openWs() {
-            var cuestionario_json ={cuestionario: this.cuestionario, preguntasMultiples: this.pregunta_multiple, preguntasVF: this.preguntavf,
-                                    preguntasCortas: this.pregunta_corta};
-            var myJSON = JSON.stringify(cuestionario_json);
-            this.sendMessage(myJSON);
-        },
-        errorWs(evt) {
-            this.estado = 'error';
-        },
-        messageWs(evt) {
-            this.cuestionarios = evt.data;
-        },
-        sendMessage(msgData) {
-            socket.send(msgData);
-        },
+        
         fomulario: function () {
             if (this.cuestionario) {
                 if (this.pregunta_multiple.length != 0 || this.preguntavf.length != 0 || this.pregunta_corta.length != 0) {
@@ -150,6 +130,28 @@ var vm = new Vue({
                     this.respuesta_corta = '';
                 break;
             }
+        },
+
+        connect() {
+            socket = new WebSocket("ws://localhost:4567/profesor");
+            socket.onopen = this.openWs;
+            socket.onerror = this.errorWs;
+            socket.onmessage = this.messageWs;
+        },
+        openWs() {
+            var cuestionario_json ={cuestionario: this.cuestionario, preguntasMultiples: this.pregunta_multiple, preguntasVF: this.preguntavf,
+                                    preguntasCortas: this.pregunta_corta};
+            var myJSON = JSON.stringify(cuestionario_json);
+            this.sendMessage(myJSON);
+        },
+        errorWs(evt) {
+            this.estado = 'error';
+        },
+        messageWs(evt) {
+            this.cuestionarios = evt.data;
+        },
+        sendMessage(msgData) {
+            socket.send(msgData);
         }
     }
 });
