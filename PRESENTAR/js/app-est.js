@@ -50,31 +50,7 @@ var vm = new Vue({
         accion: 0
     },
     methods: {
-        connect() {
-            socket = new WebSocket("ws://localhost:4567/estudiante");
-            socket.onopen = this.openWs;
-            socket.onerror = this.errorWs;
-            socket.onmessage = this.messageWs;
-        },
-        openWs() {
-            this.conectar = "connected";
-            this.sendMessage(this.acceso);
-        },
-        errorWs(evt) {
-            alert("No esxiste cuestionario");
-        },
-        messageWs(evt) {
-            this.cuestionario = JSON.parse(evt.data);
-            
-        },
-        sendMessage(msgData) {
-            if(this.accion === 0){
-                socket.send(msgData);
-            }else{
-                var myJSON = JSON.stringify(msgData);
-                socket.send(myJSON);
-            }
-        },
+
         almacenarRta: function(){
 
             for (var elemento in this.cuestionario.pmultiple) {
@@ -118,6 +94,31 @@ var vm = new Vue({
             this.accion = 1;
             var arreglo = {idQuiz: this.cuestionario.idQuiz, nombreCuest: this.cuestionario.nombreCuest, student: this.estudiante, rtas: this.rta};
             this.sendMessage(arreglo);
+        },
+        connect() {
+            socket = new WebSocket("ws://localhost:4567/estudiante");
+            socket.onopen = this.openWs;
+            socket.onerror = this.errorWs;
+            socket.onmessage = this.messageWs;
+        },
+        openWs() {
+            this.conectar = "conectado";
+            this.sendMessage(this.acceso);
+        },
+        errorWs(evt) {
+            alert("No esxiste cuestionario");
+        },
+        messageWs(evt) {
+            this.cuestionario = JSON.parse(evt.data);
+            
+        },
+        sendMessage(msgData) {
+            if(this.accion === 0){
+                socket.send(msgData);
+            }else{
+                var myJSON = JSON.stringify(msgData);
+                socket.send(myJSON);
+            }
         }
     }
 });

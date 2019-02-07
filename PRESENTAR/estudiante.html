@@ -13,15 +13,14 @@
         <div id="formLogin" v-if="!conectar">
             <div id="containerTxtKeyConnected">
                 <label>CODIGO CUESTIONARIO</label>
-                <input id="txtKeyConnected" v-model="acceso" type="text" name="txtKey" placeholder="Codigo de cuestionario">
+                <input id="txtKeyConnected" v-model="acceso" type="text" name="Access" placeholder="Codigo de cuestionario">
             </div>
             <button id="btnEnterKey" v-on:click="connect">Empezar</button>
         </div>
-        
-        <div id="containerQuiz" v-if="conectar === 'conectado'">
 
+        <form v-if="conectar === 'conectado'" id="formulario">
             <h2>{{ cuestionario.nombreCuest }} </h2>
-        <br>
+            <br>
             <div v-for="interrogante in cuestionario.pmultiple" id="">
                 <h5>{{ interrogante.pregunta }} </h5>
                 <fieldset>
@@ -46,7 +45,7 @@
                 </fieldset>
             </div>
             <br>
-            <button type="button" name="button" v-on:click="saveAnswer">Enviar Respuesta</button>
+            <button type="button" name="button" v-on:click="almacenarRta">Enviar Respuesta</button>
         </form>
         <!--
         <pre>
