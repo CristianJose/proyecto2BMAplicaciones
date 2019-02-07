@@ -20,6 +20,10 @@
         <mapping class="hibernate.Pre_Vf" />
         <mapping class="hibernate.Pre_C" />
         <mapping class="hibernate.Resp_M" />
+
+        <mapping class="hibernate.Informe" />
+        <mapping class="hibernate.Respuestas" />
+
     </session-factory>
 
 </hibernate-configuration>
