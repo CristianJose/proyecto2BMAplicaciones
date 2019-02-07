@@ -37,38 +37,21 @@ Vue.component('oprcorta', {
 var vm = new Vue({
     el: "#app",
     data: {
-        //estado: "",
-        //nameQuiz: '',
-        cuestionario:'',
-        cod_cuestionario: '',
-        //textQuestion: '',        
+        cuestionario:'', 
         pregunta: '',
-        // -- option: 0,
         tipo_pregunta: 0,
-        //listOptionmultiple: [],
         pregunta_multiple: [],
-        //listTrueFalse: [],
         preguntavf: [],
-        //listShortAnswer: [],
         pregunta_corta: [],
-        //option1: '',
         opcion_r1: '',
-        //option2: '',
         opcion_r2: '',
-        //option3: '',
         opcion_r3: '',
-        //answerTrueFalse: true,
         botonvf: true,
-        //answerShortAnswer: '',
         respuesta_corta: '',
-        //answer1: false,
         boton_multiple1: false,
-        //answer2: false,
         boton_multiple2: false,
-        //answer2: false,
         boton_multiple3: false,
         error: [],
-       // Cuestionario: []
     },
     methods: {
         connect() {
@@ -92,7 +75,6 @@ var vm = new Vue({
         sendMessage(msgData) {
             socket.send(msgData);
         },
-        //addQUIZ
         fomulario: function () {
             if (this.cuestionario) {
                 if (this.pregunta_multiple.length != 0 || this.preguntavf.length != 0 || this.pregunta_corta.length != 0) {
@@ -103,21 +85,8 @@ var vm = new Vue({
             }else{
                 this.errors.push('Sin nombre de cuestionario')
             }
-            /*if (this.nom_cuestionario) {
-                this.Cuestionario.push({nomb_cuestionario: this.nom_cuestionario, opcionMultiple: this.pregunta_multiple,
-                      opcionvf: this.preguntavf, opcionCorta: this.pregunta_corta});
-                if(this.Cuestionario.length != 0){
-                    this.connect();
-                    return true;
-                }else{
-                    this.errors.push('Cuestionario vacio');
-                }
-            }
-            if (!this.nom_cuestionario) {
-                this.errors.push('Se requiere el nombre del cuestionario');
-            }*/
+           
         },
-        //addQuestionOptionMultiple:
         agregarMultiple: function()
         {
             if (this.pregunta && this.opcion_r1 && this.opcion_r2 && this.opcion_r3) {
@@ -133,8 +102,6 @@ var vm = new Vue({
             }
 
         },
-
-        //addQuestionTrueFalse:
         agregarVF: function(){
             if(this.pregunta){
                 this.preguntavf.push({pregunta: this.pregunta, rta: this.botonvf});
@@ -143,7 +110,6 @@ var vm = new Vue({
                 this.errors.push('No hay datos suficientes');
             }
         },
-        //addQuestionShortAnswer
         agregarRespuestaCorta: function(){
             if (this.pregunta && this.respuesta_corta){
                 this.pregunta_corta.push({pregunta: this.pregunta, rta: this.respuesta_corta});
@@ -152,11 +118,9 @@ var vm = new Vue({
                 this.errors.push('No hay datos suficientes');
             }
         },
-        //setTrueFalse
         definirVF: function(booleana){
             this.botonvf = booleana;
         },
-        //setOption
         mostrarPregunta(tipo_preguntas){
             if(tipo_preguntas == this.tipo_pregunta){
                 this.tipo_pregunta = 0;
